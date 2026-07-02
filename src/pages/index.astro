@@ -3,17 +3,17 @@ import Layout from '../layouts/Layout.astro';
 
 const features = [
   {
-    icon: '/icon-recycle.svg',
+    label: 'Feedstock',
     title: 'Built for the hardest waste',
     body: 'Polyolefins are half of all plastic produced and the least recyclable fraction. Our process accepts mixed post-consumer streams that mechanical recycling cannot.',
   },
   {
-    icon: '/icon-bubbles.svg',
+    label: 'Process',
     title: 'Mild by design',
     body: 'Selective oxidation at ambient pressure and low temperature. No high-pressure reactors, no energy-intensive cracking, and a plant footprint that scales down as well as up.',
   },
   {
-    icon: '/icon-treasure.svg',
+    label: 'Product',
     title: 'High-value products, not downcycled commodities',
     body: 'Long-chain diacids that drop into polyester polyols and biodegradable polymers, sold on specification into existing supply chains.',
   },
@@ -48,7 +48,7 @@ const features = [
       <div class="feature-grid">
         {features.map((f) => (
           <div class="card">
-            <img src={f.icon} alt="" class="feature-icon" />
+            <span class="card-label">{f.label}</span>
             <h3>{f.title}</h3>
             <p>{f.body}</p>
           </div>
@@ -149,12 +149,15 @@ const features = [
     padding: 1.75rem;
   }
 
-  .feature-icon {
-    display: block;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-bottom: 1.25rem;
-    filter: invert(18%) sepia(10%) saturate(600%) hue-rotate(95deg) brightness(60%);
+  .card-label {
+    display: inline-block;
+    font-family: var(--font-accent);
+    font-weight: 600;
+    font-size: var(--step-eyebrow);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
   }
 
   .card h3 {
