@@ -1,61 +1,196 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: '⚗️',
+    title: 'Feature one',
+    body: 'Short description of this feature or benefit. Replace with real copy.',
+  },
+  {
+    icon: '🔬',
+    title: 'Feature two',
+    body: 'Short description of this feature or benefit. Replace with real copy.',
+  },
+  {
+    icon: '♻️',
+    title: 'Feature three',
+    body: 'Short description of this feature or benefit. Replace with real copy.',
+  },
+];
 ---
 
-<Layout title="Polypop">
-  <main>
-    <section class="hero">
-      <h1>Polypop</h1>
-      <p>Your new Astro site is up and running.</p>
-      <a class="cta" href="https://docs.astro.build" target="_blank" rel="noopener">
-        Read the Astro docs
-      </a>
-    </section>
-  </main>
+<Layout>
+
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="section-inner hero-inner">
+      <span class="eyebrow">The Polymer Oxidation Company</span>
+      <h1>Headline goes<br /><em>here</em></h1>
+      <p class="hero-sub">
+        A short supporting tagline explaining what Polypop does and why it matters.
+        One or two sentences max.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#features" class="btn btn-ghost">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ──────────────────────────────────────────────── -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <span class="eyebrow">What we do</span>
+      <h2>Section heading</h2>
+      <p class="section-sub">
+        A sentence or two setting up the features below. Keep it short.
+      </p>
+      <div class="feature-grid">
+        {features.map((f) => (
+          <div class="card">
+            <span class="feature-icon">{f.icon}</span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────────── -->
+  <section class="cta-band on-dark" id="contact">
+    <div class="section-inner cta-inner">
+      <span class="eyebrow">Get started</span>
+      <h2>Ready to learn more?</h2>
+      <p>
+        Replace this with a compelling reason to reach out or sign up.
+      </p>
+      <a href="mailto:hello@example.com" class="btn btn-light">Contact us</a>
+    </div>
+  </section>
+
 </Layout>
 
 <style>
-  main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 1.5rem;
+  /* ── Hero ─────────────────────────────────────────────────────── */
+  .hero {
+    padding: var(--section-pad);
+    padding-top: 7rem;
+    border-bottom: var(--border-hairline);
   }
 
-  .hero {
-    text-align: center;
-    max-width: 40rem;
+  .hero-inner {
+    max-width: 54rem;
   }
 
   h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    margin: 0 0 0.5rem;
-    background: linear-gradient(120deg, #b565e0, var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--step-h1);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 1.5rem;
   }
 
-  p {
-    font-size: 1.25rem;
-    opacity: 0.8;
-    margin: 0 0 2rem;
+  h1 em {
+    font-style: italic;
+    color: var(--sage);
   }
 
-  .cta {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
+  .hero-sub {
+    font-size: var(--step-lead);
+    color: var(--muted);
+    max-width: 38rem;
+    margin: 0 0 2.5rem;
+    line-height: var(--leading-body);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── Features ─────────────────────────────────────────────────── */
+  .features {
+    padding: var(--section-pad);
+    border-bottom: var(--border-hairline);
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--step-h2);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+
+  .section-sub {
+    font-size: var(--step-lead);
+    color: var(--muted);
+    max-width: 36rem;
+    margin: 0 0 3rem;
+    line-height: var(--leading-body);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    background: var(--green-tint);
+    border: var(--border-hairline);
+    border-radius: var(--radius-card);
+    padding: 1.75rem;
+  }
+
+  .feature-icon {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .card h3 {
+    font-family: var(--font-sans);
+    font-size: var(--step-card-title);
     font-weight: 600;
-    text-decoration: none;
-    color: var(--fg);
-    background: var(--accent);
-    transition: transform 0.15s ease, opacity 0.15s ease;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
   }
 
-  .cta:hover {
-    transform: translateY(-2px);
-    opacity: 0.92;
+  .card p {
+    font-size: var(--step-body);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  /* ── CTA band ─────────────────────────────────────────────────── */
+  .cta-band {
+    background: var(--brand);
+    padding: var(--section-pad);
+  }
+
+  .cta-inner {
+    max-width: 42rem;
+  }
+
+  .cta-band h2 {
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .cta-band p {
+    font-size: var(--step-lead);
+    color: var(--muted-on-dark);
+    line-height: var(--leading-body);
+    margin: 0 0 2rem;
   }
 </style>
