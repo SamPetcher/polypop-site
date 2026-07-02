@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Name Surname',
+    role: 'Co-founder & CEO',
+    bio: 'Background and expertise. Replace with a two or three sentence summary of this person\'s relevant experience and what they bring to the company.',
+  },
+  {
+    name: 'Name Surname',
+    role: 'Co-founder & CTO',
+    bio: 'Background and expertise. Replace with a two or three sentence summary of this person\'s relevant experience and what they bring to the company.',
+  },
+  {
+    name: 'Name Surname',
+    role: 'Role title',
+    bio: 'Background and expertise. Replace with a two or three sentence summary of this person\'s relevant experience and what they bring to the company.',
+  },
+];
+---
+
+<Layout title="Team — The Polymer Oxidation Company" description="Meet the team behind The Polymer Oxidation Company.">
+
+  <section class="page-hero">
+    <div class="section-inner">
+      <span class="eyebrow">The team</span>
+      <h1>The people behind the process</h1>
+      <p class="hero-sub">Placeholder tagline about the founding team.</p>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="section-inner">
+      <div class="team-grid">
+        {team.map((person) => (
+          <div class="person-card">
+            <div class="avatar">
+              <span class="avatar-initials">
+                {person.name.split(' ').map((n: string) => n[0]).join('')}
+              </span>
+            </div>
+            <div class="person-info">
+              <span class="card-label">{person.role}</span>
+              <h2>{person.name}</h2>
+              <p>{person.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── Page hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding: 6rem 1.5rem 4rem;
+    border-bottom: var(--border-hairline);
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--step-h1);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 1rem;
+    max-width: 32rem;
+  }
+
+  .hero-sub {
+    font-size: var(--step-lead);
+    color: var(--muted);
+    margin: 0;
+    max-width: 36rem;
+    line-height: var(--leading-body);
+  }
+
+  /* ── Team grid ───────────────────────────────────────────────── */
+  .team-section {
+    padding: var(--section-pad);
+  }
+
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .person-card {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 2rem;
+    align-items: start;
+    background: var(--green-tint);
+    border: var(--border-hairline);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+  }
+
+  /* ── Avatar ──────────────────────────────────────────────────── */
+  .avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: var(--green-highlight);
+    border: var(--border-hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .avatar-initials {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--sage);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Person info ─────────────────────────────────────────────── */
+  .card-label {
+    display: inline-block;
+    font-family: var(--font-accent);
+    font-weight: 600;
+    font-size: var(--step-eyebrow);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.4rem;
+  }
+
+  .person-info h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--step-card-title);
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    margin: 0 0 0.75rem;
+  }
+
+  .person-info p {
+    font-size: var(--step-body);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+    font-feature-settings: 'calt' 0;
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 480px) {
+    .person-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
