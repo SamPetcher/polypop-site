@@ -1,0 +1,19 @@
+{
+  "name": "polypop-site",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@fontsource-variable/syne": "^5.2.7",
+    "@fontsource/dm-serif-display": "^5.2.8",
+    "astro": "^5.6.1"
+  }
+}

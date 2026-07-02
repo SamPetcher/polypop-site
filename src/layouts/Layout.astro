@@ -1,0 +1,259 @@
+---
+import '@fontsource/dm-serif-display';
+import '@fontsource/dm-serif-display/400-italic.css';
+import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/syne';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'The Polymer Oxidation Company',
+  description = 'The Polymer Oxidation Company — advancing plastics oxidation technology.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="wordmark" href="/">
+          <img src="/logo.png" alt="The Polymer Oxidation Company" class="nav-logo" />
+          <span>The Polymer Oxidation Company</span>
+        </a>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+        </ul>
+      </nav>
+    </header>
+    <slot />
+    <footer>
+      <p>&copy; {new Date().getFullYear()} The Polymer Oxidation Company. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  /* ── Design tokens ───────────────────────────────────────────── */
+  :root {
+    /* fonts */
+    --font-serif:  'DM Serif Display', Georgia, 'Times New Roman', serif;
+    --font-sans:   'DM Sans Variable', 'DM Sans', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    --font-accent: 'Syne Variable', 'Syne', var(--font-sans);
+
+    /* core */
+    --paper:  #F7F7F4;
+    --ink:    #121210;
+    --brand:  #2B3A33;
+    --cream:  #E3E5E2;
+    --white:  #FFFFFF;
+
+    /* greens */
+    --sage:             #3C5448;
+    --green-tint:       #EEF3F0;
+    --green-highlight:  #D6E2DA;
+    --line:             #DDE5DC;
+    --muted-on-dark:    #8A9691;
+
+    /* text */
+    --muted: #505050;
+    --faint: #9A9B9A;
+
+    /* accents */
+    --rust:       #6B2B1A;
+    --rust-warm:  #7A3613;
+    --clay:       #D08070;
+    --amber:      #B57A00;
+    --amber-bar:  #C47A00;
+
+    /* status pills */
+    --blue-tint: #D8EAF6;   --blue-ink: #183C66;
+    --yellow-tint: #FCF0CC; --yellow-ink: #784E00;
+    --green-badge: #E7EEE6; --green-badge-ink: #2B3A33;
+
+    /* radius / borders */
+    --radius-card: 10px;
+    --radius-pill: 999px;
+    --border-hairline: 1px solid var(--line);
+
+    /* type scale */
+    --step-eyebrow:   0.8rem;
+    --step-body:      1rem;
+    --step-lead:      1.125rem;
+    --step-card-title:1.5rem;
+    --step-h2:        clamp(1.75rem, 1.3rem + 1.9vw, 2.5rem);
+    --step-h1:        clamp(2.25rem, 1.6rem + 2.8vw, 3.25rem);
+    --step-display:   clamp(3rem, 2rem + 4.5vw, 5rem);
+
+    /* tracking / leading */
+    --tracking-eyebrow: 0.14em;
+    --leading-tight: 1.1;
+    --leading-body:  1.55;
+
+    /* layout */
+    --max-w: 72rem;
+    --section-pad: 6rem 1.5rem;
+  }
+
+  /* ── Reset ───────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: var(--step-body);
+    line-height: var(--leading-body);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  /* ── Nav ─────────────────────────────────────────────────────── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 247, 244, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--border-hairline);
+  }
+
+  nav {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .wordmark {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-logo {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    /* logo is black linework on white — invert to show on paper bg */
+    filter: invert(18%) sepia(10%) saturate(600%) hue-rotate(95deg) brightness(60%);
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  nav ul a {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+
+  nav ul a:hover { color: var(--ink); }
+
+  .nav-cta {
+    color: var(--cream) !important;
+    background: var(--brand);
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    transition: opacity 0.15s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  footer {
+    border-top: var(--border-hairline);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--faint);
+    font-size: 0.875rem;
+  }
+
+  footer p { margin: 0; }
+
+  /* ── Shared utilities ────────────────────────────────────────── */
+  .section-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-accent);
+    font-weight: 600;
+    font-size: var(--step-eyebrow);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1rem;
+  }
+
+  .on-dark .eyebrow { color: var(--muted-on-dark); }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: var(--step-body);
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover { transform: translateY(-1px); opacity: 0.9; }
+
+  .btn-primary {
+    background: var(--brand);
+    color: var(--cream);
+  }
+
+  .btn-ghost {
+    border: var(--border-hairline);
+    color: var(--muted);
+    background: transparent;
+  }
+
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+  .btn-light {
+    background: var(--cream);
+    color: var(--brand);
+  }
+</style>
