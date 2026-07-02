@@ -3,17 +3,17 @@ import Layout from '../layouts/Layout.astro';
 
 const features = [
   {
-    icon: '♻️',
+    icon: '/icon-recycle.svg',
     title: 'Built for the hardest waste',
     body: 'Polyolefins are half of all plastic produced and the least recyclable fraction. Our process accepts mixed post-consumer streams that mechanical recycling cannot.',
   },
   {
-    icon: '⚗️',
+    icon: '/icon-bubbles.svg',
     title: 'Mild by design',
     body: 'Selective oxidation at ambient pressure and low temperature. No high-pressure reactors, no energy-intensive cracking, and a plant footprint that scales down as well as up.',
   },
   {
-    icon: '🔬',
+    icon: '/icon-treasure.svg',
     title: 'High-value products, not downcycled commodities',
     body: 'Long-chain diacids that drop into polyester polyols and biodegradable polymers, sold on specification into existing supply chains.',
   },
@@ -48,7 +48,7 @@ const features = [
       <div class="feature-grid">
         {features.map((f) => (
           <div class="card">
-            <span class="feature-icon">{f.icon}</span>
+            <img src={f.icon} alt="" class="feature-icon" />
             <h3>{f.title}</h3>
             <p>{f.body}</p>
           </div>
@@ -150,9 +150,11 @@ const features = [
   }
 
   .feature-icon {
-    font-size: 1.75rem;
     display: block;
-    margin-bottom: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1.25rem;
+    filter: invert(18%) sepia(10%) saturate(600%) hue-rotate(95deg) brightness(60%);
   }
 
   .card h3 {
