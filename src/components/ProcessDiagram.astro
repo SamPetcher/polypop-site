@@ -1,0 +1,212 @@
+---
+const stages = [
+  { title: 'Waste plastic', sub: 'Hard to recycle' },
+  { title: 'Oxidation process', sub: 'Cuts the chains' },
+  { title: 'Diacids', sub: 'Building blocks' },
+  { title: 'New materials', sub: 'Biodegradable' },
+];
+---
+
+<div class="process">
+  <h3 class="visually-hidden">Animated overview: oxidation cuts waste plastic chains into diacid building blocks, which are joined with a comonomer into new biodegradable materials.</h3>
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      .fL { animation: splitL 2s ease-in-out infinite; }
+      .fR { animation: splitR 2s ease-in-out infinite; }
+      .oz { animation: ozp 2s ease-in-out infinite; }
+      .d2 { animation-delay: -0.6s; }
+      .flt { animation: flt 2s ease-in-out infinite; }
+      .f1 { animation-delay: -0.2s; }
+      .f2 { animation-delay: -1.1s; }
+    }
+    @keyframes splitL { 0%,25% {transform:translateX(8px)} 55%,90% {transform:translateX(0)} 100% {transform:translateX(8px)} }
+    @keyframes splitR { 0%,25% {transform:translateX(-8px)} 55%,90% {transform:translateX(0)} 100% {transform:translateX(-8px)} }
+    @keyframes ozp { 0%,15% {opacity:0} 30%,70% {opacity:1} 90%,100% {opacity:0} }
+    @keyframes flt { 0%,100% {opacity:0.2} 50% {opacity:0.7} }
+  </style>
+
+  <div class="process-row">
+    <div class="stage">
+      <div class="icon-slot"><svg class="icon" viewBox="40 42 120 84" aria-hidden="true">
+        <path d="M46 60 C70 48 92 72 118 58 S150 70 154 60" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M48 85 C74 95 96 72 122 88 S148 78 152 88" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M46 110 C68 100 94 120 120 106 S146 116 154 108" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+      </svg></div>
+      <p class="stage-title">{stages[0].title}</p>
+      <p class="stage-sub">{stages[0].sub}</p>
+    </div>
+
+    <svg class="process-arrow" viewBox="0 0 20 12" aria-hidden="true"><path d="M1 6H17M17 6L12 1M17 6L12 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+    <div class="stage">
+      <div class="icon-slot"><svg class="icon" viewBox="196 38 136 90" aria-hidden="true">
+        <circle class="oz" cx="260" cy="59" r="7" fill="#1D9E75" fill-opacity="0.2" stroke="#1D9E75" stroke-width="1.5"/>
+        <circle class="oz d2" cx="262" cy="93" r="7" fill="#1D9E75" fill-opacity="0.2" stroke="#1D9E75" stroke-width="1.5"/>
+        <circle class="flt f1" cx="238" cy="116" r="4" fill="#1D9E75" fill-opacity="0.2" stroke="#1D9E75" stroke-width="1.5" opacity="0.6"/>
+        <circle class="flt f2" cx="292" cy="46" r="4" fill="#1D9E75" fill-opacity="0.2" stroke="#1D9E75" stroke-width="1.5" opacity="0.6"/>
+        <path class="fL" d="M206 62 C222 52 238 66 250 59" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="fR" d="M270 59 C286 52 302 66 314 58" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="fL d2" d="M206 92 C224 100 240 86 252 93" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="fR d2" d="M272 93 C290 88 304 100 314 92" fill="none" stroke="#888780" stroke-width="2.5" stroke-linecap="round"/>
+      </svg></div>
+      <p class="stage-title">{stages[1].title}</p>
+      <p class="stage-sub">{stages[1].sub}</p>
+    </div>
+
+    <svg class="process-arrow" viewBox="0 0 20 12" aria-hidden="true"><path d="M1 6H17M17 6L12 1M17 6L12 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+    <div class="stage">
+      <div class="icon-slot"><svg class="icon" viewBox="366 52 106 72" aria-hidden="true">
+        <line x1="372" y1="60" x2="410" y2="60" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="372" cy="60" r="4" fill="#1D9E75"/><circle cx="410" cy="60" r="4" fill="#1D9E75"/>
+        <line x1="428" y1="60" x2="466" y2="60" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="428" cy="60" r="4" fill="#1D9E75"/><circle cx="466" cy="60" r="4" fill="#1D9E75"/>
+        <line x1="372" y1="88" x2="410" y2="88" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="372" cy="88" r="4" fill="#1D9E75"/><circle cx="410" cy="88" r="4" fill="#1D9E75"/>
+        <line x1="428" y1="88" x2="466" y2="88" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="428" cy="88" r="4" fill="#1D9E75"/><circle cx="466" cy="88" r="4" fill="#1D9E75"/>
+        <line x1="372" y1="116" x2="410" y2="116" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="372" cy="116" r="4" fill="#1D9E75"/><circle cx="410" cy="116" r="4" fill="#1D9E75"/>
+        <line x1="428" y1="116" x2="466" y2="116" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="428" cy="116" r="4" fill="#1D9E75"/><circle cx="466" cy="116" r="4" fill="#1D9E75"/>
+      </svg></div>
+      <p class="stage-title">{stages[2].title}</p>
+      <p class="stage-sub">{stages[2].sub}</p>
+    </div>
+
+    <svg class="process-arrow" viewBox="0 0 20 12" aria-hidden="true"><path d="M1 6H17M17 6L12 1M17 6L12 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+    <div class="stage">
+      <div class="icon-slot"><svg class="icon" viewBox="520 54 122 66" aria-hidden="true">
+        <line x1="548" y1="74" x2="570" y2="60" stroke="#7F77DD" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="592" y1="74" x2="614" y2="60" stroke="#7F77DD" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="526" y1="60" x2="548" y2="74" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="570" y1="60" x2="592" y2="74" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="614" y1="60" x2="636" y2="74" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="526" cy="60" r="4" fill="#1D9E75"/><circle cx="548" cy="74" r="4" fill="#1D9E75"/><circle cx="570" cy="60" r="4" fill="#1D9E75"/><circle cx="592" cy="74" r="4" fill="#1D9E75"/><circle cx="614" cy="60" r="4" fill="#1D9E75"/><circle cx="636" cy="74" r="4" fill="#1D9E75"/>
+        <line x1="548" y1="112" x2="570" y2="98" stroke="#7F77DD" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="592" y1="112" x2="614" y2="98" stroke="#7F77DD" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="526" y1="98" x2="548" y2="112" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="570" y1="98" x2="592" y2="112" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="614" y1="98" x2="636" y2="112" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="526" cy="98" r="4" fill="#1D9E75"/><circle cx="548" cy="112" r="4" fill="#1D9E75"/><circle cx="570" cy="98" r="4" fill="#1D9E75"/><circle cx="592" cy="112" r="4" fill="#1D9E75"/><circle cx="614" cy="98" r="4" fill="#1D9E75"/><circle cx="636" cy="112" r="4" fill="#1D9E75"/>
+      </svg></div>
+      <p class="stage-title">{stages[3].title}</p>
+      <p class="stage-sub">{stages[3].sub}</p>
+    </div>
+  </div>
+
+  <div class="process-legend">
+    <span><svg width="26" height="10" viewBox="0 0 26 10" aria-hidden="true"><line x1="2" y1="5" x2="24" y2="5" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/><circle cx="2" cy="5" r="2.25" fill="#1D9E75"/><circle cx="24" cy="5" r="2.25" fill="#1D9E75"/></svg> Diacid units</span>
+    <span><svg width="26" height="10" viewBox="0 0 26 10" aria-hidden="true"><line x1="2" y1="5" x2="24" y2="5" stroke="#7F77DD" stroke-width="2" stroke-linecap="round"/></svg> Comonomer</span>
+  </div>
+</div>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .process {
+    --icon-h: 4.5rem;
+    background: var(--green-tint);
+    border: var(--border-hairline);
+    border-radius: var(--radius-card);
+    padding: 2.25rem 2rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .process-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .stage {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+  }
+
+  .icon-slot {
+    height: var(--icon-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    height: 100%;
+    max-height: var(--icon-h);
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .stage-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .stage-sub {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .process-arrow {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 0.75rem;
+    color: var(--faint);
+    margin-top: calc((var(--icon-h) - 0.75rem) / 2);
+  }
+
+  .process-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .process-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .process-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.25rem;
+    }
+
+    .process-arrow {
+      align-self: center;
+      transform: rotate(90deg);
+      margin-top: 0;
+    }
+
+    .process-legend {
+      gap: 1.25rem;
+    }
+  }
+</style>

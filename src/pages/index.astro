@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProcessDiagram from '../components/ProcessDiagram.astro';
 
 const features = [
   {
@@ -56,6 +57,7 @@ const features = [
       <p class="section-sub">
         Our process runs at ambient pressure and low temperature (&lt;130 °C), converting waste polyolefins into dicarboxylic acids without energy-intensive infrastructure.
       </p>
+      <ProcessDiagram />
       <div class="feature-grid">
         {features.map((f) => (
           <div class="card">
